@@ -1,4 +1,12 @@
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseNotFound
 
-# Create your views here.
-
+def days_week(request, day):
+    quote_text = None
+    if day == "monday":
+        quote_text = "Comenzando la semana"
+    elif day == "tuesday":
+        quote_text = "Quedan pocos dias para descansar"
+    else:
+        return HttpResponseNotFound("Hoy no es un buen dia xD\nTu pagina no se encuentra disponible")
+    
+    return HttpResponse(quote_text)
