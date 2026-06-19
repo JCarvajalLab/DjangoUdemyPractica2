@@ -13,7 +13,7 @@ days_of_week = {
 }
 
 def index(request):
-    days = list(days_of_week.keys())  # [monday, tuesday...]
+    days = list(days_of_week.keys())  
     return render(request, "quotes/index.html", {
         "days": days
     })
