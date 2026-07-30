@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseNotFound
 from .models import Book
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 def index(request):
     try:
@@ -13,8 +14,12 @@ def index(request):
                 Q(title__icontains=query) | Q(author__name__icontains=query)
             )
 
+        paginator = Paginator(books, 5)
+        page_number = request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
+
         return render(request, 'minilibrary/minilibrary.html', {
-            "books": books,
+            "page_obj": page_obj,
             "query": query
         })
     except Exception:
