@@ -10,6 +10,17 @@
     <h2>Hola mundo desde minilibrary</h2>
     <h3>{{ text }}</h3>
     <p>{{ name }}</p>
+    <p>{{author}}</p>
+    <p>{{books}}</p>
 
+    <ul>
+        
+        {% for book in books %}
+            <li>{{book.title}} - {{ book.author.name }}</li>
+        {% empty %}
+            <li>No se encontraron libros</li>
+        {% endfor %}
+            
+    </ul>
 </body>
 </html>
