@@ -8,10 +8,10 @@
 <body>
     <h1>Minilibrary page</h1>
     <h2>Hola mundo desde minilibrary</h2>
-    <h3>{{ text }}</h3>
-    <p>{{ name }}</p>
-    <p>{{author}}</p>
-    <p>{{books}}</p>
+    <form method="get">
+        <input type="text" name="query_search" placeholder="Buscar por titulo o autor" value="{{query}}">
+        <button type="submit">Enviar</button>
+    </form>
 
     <ul>
         
